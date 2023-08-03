@@ -24,7 +24,6 @@
 
     .title-bar {
       background-color: #222;
-      color: #fff;
       text-align: center;
       padding: 15px;
     }
@@ -32,6 +31,16 @@
     .title-bar h1 {
       font-size: 30px;
       margin: 0;
+      animation: colorChange 4s infinite; /* Animation for color-changing effect */
+    }
+
+    /* Keyframes for color-changing effect */
+    @keyframes colorChange {
+      0% { color: #ff5733; } /* Starting color (orange) */
+      25% { color: #ffcc33; } /* Midway color (yellow) */
+      50% { color: #33ff33; } /* Midway color (green) */
+      75% { color: #3399ff; } /* Midway color (blue) */
+      100% { color: #ff5733; } /* Ending color (orange) */
     }
 
     .jumbotron {
@@ -55,17 +64,23 @@
       margin-top: 20px;
     }
 
+    /* Updated styles for the grid layout */
+    .channel-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px; /* Added gap between grid cells */
+    }
+
     .channel-button {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      width: 150px;
-      height: 150px;
-      padding: 15px;
+      width: 100px; /* Reduced button width */
+      height: 80px; /* Reduced button height */
+      padding: 10px; /* Reduced padding */
       border: 1px solid #ccc;
       border-radius: 8px;
-      margin: 10px;
       text-decoration: none;
       color: #333;
       transition: background-color 0.3s ease-in-out;
@@ -78,20 +93,63 @@
     }
 
     .channel-icon {
-      width: 100%;
-      height: 100%;
+      width: 80%;
+      height: 60%; /* Adjusted height of the icon */
       object-fit: cover;
     }
 
-    .channel-title {
+    /* Stylish buttons for About Me and Instagram */
+    .about-me-button, .instagram-button {
+      display: inline-block;
+      padding: 12px 30px;
+      margin: 10px;
+      border-radius: 50px;
+      background-color: #007bff;
+      color: #fff;
       font-size: 16px;
-      margin-top: 10px;
+      text-decoration: none;
+      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    .channel-container {
+    .about-me-button:hover, .instagram-button:hover {
+      background-color: #0056b3;
+      transform: scale(1.1);
+    }
+
+    /* About Me and Instagram sections */
+    .about-me-section, .instagram-section {
+      padding: 20px 0;
+      text-align: center;
+      /* Change the background to a gradient */
+      background: linear-gradient(45deg, #00b8ff, #5c00d6);
       display: flex;
+      justify-content: space-around;
       flex-wrap: wrap;
-      justify-content: space-between;
+    }
+
+    .about-me-section h2, .instagram-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    /* Custom media query for responsiveness */
+    @media (max-width: 768px) {
+      .channel-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .about-me-section, .instagram-section {
+        padding: 10px 0;
+      }
     }
   </style>
 </head>
@@ -123,10 +181,8 @@
           <img src="nick.gif" alt="NICK" class="channel-icon">
           <span class="channel-title">NICK</span>
         </a>
-      </div>
-      <div class="channel-buttons channel-container">
         <a href="https://sanjiblive.tech/IP/POGO.html" target="_blank" class="btn btn-primary channel-button">
-          <img src="Pogo.gif" alt="POGO" class="channel-icon">
+          <img src="pogo.gif" alt="POGO" class="channel-icon">
           <span class="channel-title">POGO</span>
         </a>
         <a href="https://sanjiblive.tech/IP/Shungama.html" target="_blank" class="btn btn-primary channel-button">
@@ -137,8 +193,6 @@
           <img src="dk.gif" alt="Discovery Kids" class="channel-icon">
           <span class="channel-title">Discovery Kids</span>
         </a>
-      </div>
-      <div class="channel-buttons channel-container">
         <a href="https://sanjiblive.tech/IP/CNHD.html" target="_blank" class="btn btn-primary channel-button">
           <img src="cnhd.gif" alt="Cartoon Network HD" class="channel-icon">
           <span class="channel-title">Cartoon Network HD</span>
@@ -157,14 +211,24 @@
         </a>
       </div>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      &copy; 2023 PAINUM - All rights reserved.
+    <!-- About Me Section -->
+    <div class="about-me-section">
+      <h2>About Me</h2>
+      <p>Hello, I'm Mukul Diwakar👋 .</p>
+      <!-- About Me Button -->
+      <a href="https://painum.netlify.app/" class="about-me-button">About Me</a>
+      <!-- Instagram Button -->
+      <a href="https://www.instagram.com/_mukul_diwakar/" class="instagram-button">Instagram</a>
     </div>
-  </footer>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        &copy; 2023 PAINUM - All rights reserved.
+      </div>
+    </footer>
+  </div>
 
   <!-- Link Bootstrap and your custom JS files here -->
   <!-- For Bootstrap 5 -->
